@@ -1,0 +1,50 @@
+body {
+    margin: 0px auto;
+    padding: 20px;
+    font-size: 20px;
+    background: #000000;
+}
+
+
+.content{ 
+}
+
+.circle{
+    width: 290px;
+    height: 290px;
+    font-size:50px;
+    color:#fff;
+    margin: auto;
+    border-style: solid;
+  	border-color: #FF4AC0;
+  	border-width: 15px;
+    text-align:center;
+   	border-radius: 100%;
+    line-height: normal;
+}
+
+
+.calorie-text{
+	color: #FF4AC0;
+	margin-bottom: 0px;
+}
+
+.heart-text{
+	color: #FF4AC0;
+	margin-bottom: 0px;
+	margin-top: 20px;
+	font-size:35px;
+}
+
+.calorie-icon{
+	width: auto;
+	height:50px;
+	margin: 0px;
+}
+
+.heart-icon{
+	width: auto;
+	height:25px;
+	margin: 0px 0px 15px 0px;
+}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+	<div class="content">
+		<p id="full_calories"></p>
+		<p id="excercise_status"></p>
+		<p id="heart_rate"></p>
+		<p id="service_status"></p>
+		<div><button id="start_service">Start service</button></div><br/>
+		<div><button id="stop_service">Stop service</button></div><br/>
+	</div>
+    <script src="app.js"></script>
+    <script type="module">
+    import {Service} from 'wrt:service';
+
+    var pkg_id = tizen.application.getCurrentApplication().appInfo.packageId;
+    var service_id = "j9ip0p6mw3.Service";
+	var service_status = document.querySelector("#service_status");
+	service_status.innerHTML = "starting service";
+    var my_service = new Service(service_id);
+
+
+    function startService() {
+		var instance = tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo", onSuccess, onError);
+        my_service.start(instance).then(function() {	
+            service_status.innerHTML = "Succeeded to start service";
+        }, function(error) {
+            service_status.innerHTML= "Failed to start service: " + error;
+        });
+    }
+
+    function stopService() {
+        my_service.stop(service_id).then(function() {
+            service_status.innerHTML = "Succeeded to stop service";
+        }, function(error) {
+            service_status.innerHTML = "Failed to stop service: " + error;
+        });
+    }
+
+
+	function onSuccess(hrmInfo) {
+	    console.log("Success getting heart rate");
+	}
+	
+	function onError(error) {
+	    console.log('Error occurred: ' + error.message);
+	}
+
+	document.querySelector('#start_service').addEventListener('click', startService);
+	document.querySelector('#stop_service').addEventListener('click', stopService);
+    </script>
+    
+</body>
+
+
+</html>

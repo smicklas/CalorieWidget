@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/CalorieWidgetMain" version="1.0.0" viewmodes="maximized">
+    <tizen:app-widget id="j9ip0p6mw3.CalorieWidgetMain.CalorieWidgetMain" primary="true">
+        <tizen:widget-label>Calorie Tracker</tizen:widget-label>
+        <tizen:widget-content src="widget/CalorieWidgetMain/index.html">
+            <tizen:widget-size preview="widget/CalorieWidgetMain/preview.png">2x2</tizen:widget-size>
+        </tizen:widget-content>
+    </tizen:app-widget>
+    <tizen:application id="j9ip0p6mw3.CalorieWidgetMain" package="j9ip0p6mw3" required_version="1.0"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal"/>
+    <feature name="http://tizen.org/feature/humanactivitymonitor"/>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor"/>
+    <feature name="http://tizen.org/feature/location.gps">true</feature>
+    <icon src="calorie_icon.png"/>
+    <name>CalorieWidgetMain</name>
+    <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/power"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
+    <tizen:privilege name="http://tizen.org/privilege/appmanager.launch"/>
+    <tizen:profile name="sensor"/>
+    <tizen:service id="j9ip0p6mw3.Service" type="ui">
+        <tizen:content src="service.js"/>
+        <tizen:name>WebService</tizen:name>
+        <tizen:description>WebService</tizen:description>
+    </tizen:service>
+    <tizen:setting background-support="disable" encryption="disable" hwkey-event="enable"/>
+</widget>
